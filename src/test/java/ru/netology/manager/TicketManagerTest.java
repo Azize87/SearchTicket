@@ -7,7 +7,7 @@ import ru.netology.repository.TicketRepository;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class TicketManagerTest {
     TicketRepository repository = new TicketRepository();
@@ -26,7 +26,6 @@ class TicketManagerTest {
     }
 
 
-
     @Test
     void searchByDirection() {
         Ticket[] actual = ticketManager.searchBy("SVO", "KZN");
@@ -37,7 +36,7 @@ class TicketManagerTest {
 
     @Test
     void shouldSortByPrice() {
-        Ticket[] actual = new Ticket[] {thirdTicket, firstTicket, secondTicket};
+        Ticket[] actual = new Ticket[]{thirdTicket, firstTicket, secondTicket};
         Ticket[] expected = new Ticket[]{firstTicket, secondTicket, thirdTicket};
 
         Arrays.sort(actual);
@@ -46,5 +45,4 @@ class TicketManagerTest {
     }
 
 
-
-    }
+}

@@ -30,7 +30,6 @@ public class TicketRepository {
     public void removeById(int id) {
 
 
-
         int length = tickets.length - 1;
         Ticket[] tmp = new Ticket[length];
         int index = 0;
