@@ -24,6 +24,8 @@ public class TicketManager {
                 result = tmp;
             }
         }
+        
+        Arrays.sort(actual);
         return result;
     }
 
