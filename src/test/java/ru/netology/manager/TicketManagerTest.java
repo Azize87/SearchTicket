@@ -16,12 +16,14 @@ class TicketManagerTest {
     Ticket firstTicket = new Ticket(1, 1299, "SVO", "KZN", 95);
     Ticket secondTicket = new Ticket(2, 2199, "VKO", "KZN", 95);
     Ticket thirdTicket = new Ticket(3, 3100, "DME", "KZN", 90);
+    Ticket fourthTicket = new Ticket(4, 2100, "DME", "KZN", 90);
 
     @BeforeEach
     public void setUp() {
         ticketManager.addTicket(firstTicket);
         ticketManager.addTicket(secondTicket);
         ticketManager.addTicket(thirdTicket);
+        ticketManager.addTicket(fourthTicket);
 
     }
 
@@ -36,10 +38,8 @@ class TicketManagerTest {
 
     @Test
     void shouldSortByPrice() {
-        Ticket[] actual = new Ticket[]{thirdTicket, firstTicket, secondTicket};
-        Ticket[] expected = new Ticket[]{firstTicket, secondTicket, thirdTicket};
-
-        Arrays.sort(actual);
+        Ticket[] actual = ticketManager.searchBy("DME", "KZN");
+        Ticket[] expected = new Ticket[]{fourthTicket, thirdTicket};
 
         assertArrayEquals(expected, actual);
     }
